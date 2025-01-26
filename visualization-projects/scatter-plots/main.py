@@ -1,19 +1,56 @@
 # bike sharing dataset hosted at https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset
 # follow instructions to import data into python, install repo package https://github.com/uci-ml-repo/ucimlrepo
-pip install ucimlrepo
+# hosted files in /data folder for convenience
 
-# import dataset
-from ucimlrepo import fetch_ucirepo 
-  
-# fetch dataset 
-bike_sharing = fetch_ucirepo(id=275) 
-  
-# data (as pandas dataframes) 
-X = bike_sharing.data.features 
-y = bike_sharing.data.targets 
-  
-# metadata 
-print(bike_sharing.metadata) 
-  
-# variable information 
-print(bike_sharing.variables) 
+# import pandas and matplotlib.pyplot
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the CSV file into a DataFrame
+bike_sharing = pd.read_csv('data-files/day.csv')
+
+# examine first and last five rows
+bike_sharing.head()
+bike_sharing.tail()
+
+# examine information about the dataset using .info method
+bike_sharing.info()
+
+# convert dteday column from object to datetime
+bike_sharing['dteday'] = pd.to_datetime(bike_sharing['dteday'])
+
+# plot line graph, dteday is x-axis and casual is y-axis
+# label as Casual
+plt.plot(bike_sharing['dteday'], bike_sharing['casual'], label='Casual')
+
+# plot line graph, dteday is x-axis and registered is y-axis
+# label as Registered
+# on same graph as above
+plt.plot(bike_sharing['dteday'], bike_sharing['registered'], label='Registered')
+
+# rotate x-axis ticks 30 degrees
+plt.xticks(rotation=30)
+
+# add label bikes rented to y-axis
+plt.ylabel("Bikes Rented")
+
+# add label date to x-axis
+plt.xlabel("Date")
+
+# Add the title 'Bikes Rented: Casual vs. Registered' 
+plt.title('Bikes Rented: Casual vs. Registered')
+
+# Add a legend with 'Casual' and 'Registered' as labels
+plt.legend()
+
+# show line graph
+plt.show()
+
+# plot line graph with dteday as x-axis and temp as y-axis
+plt.plot(bike_sharing['dteday'], bike_sharing['temp'])
+
+# rotate x-axis ticks 45 degrees for readability
+plt.xticks(rotation=45)
+
+# show line graph
+plt.show()
