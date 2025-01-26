@@ -1,5 +1,5 @@
 # bike sharing dataset hosted at https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset
-# follow instructions to import data into python, install repo package
+# follow instructions to import data into python, install repo package https://github.com/uci-ml-repo/ucimlrepo
 pip install ucimlrepo
 
 # import dataset
