@@ -54,3 +54,19 @@ plt.xticks(rotation=45)
 
 # show line graph
 plt.show()
+
+# create scatter plot, compare windspeed as x-axis and cnt as y-axis
+plt.scatter(bike_sharing['windspeed'], bike_sharing['cnt'])
+
+# provide a label for x and y axis and display plot
+plt.xlabel('Wind Speed')
+plt.ylabel('Bikes Rented')
+plt.show()
+
+# show scatter plot, atemp column x-axis and registered y-axis
+plt.scatter(bike_sharing['atemp'], bike_sharing['registered'])
+plt.show()
+
+# review scatter plot to decide possible correlation
+# general positive correlation as increase in atemp/registered correspond
+correlation = 'positive'
